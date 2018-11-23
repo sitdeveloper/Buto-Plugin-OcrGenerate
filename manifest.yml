@@ -1,0 +1,16 @@
+version: '1.0'
+history:
+  '1.0':
+    description: 'First version.'
+plugin: {  }
+sys:
+  -
+    name: mercury
+    version:
+      - '1.0'
+php:
+  - '7.2'
+author: null
+links:
+  - 'https://github.com'
+description: ''
