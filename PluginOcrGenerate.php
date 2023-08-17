@@ -15,7 +15,7 @@ class PluginOcrGenerate{
      * Add length digit.
      */
     if($length){
-      $number = $number.substr(strlen($number)+2, -1);
+      $number = $number.substr(wfPhpfunc::strlen($number)+2, -1);
     }
     /**
      * To array and reverse.
@@ -67,17 +67,17 @@ class PluginOcrGenerate{
    * @return boolean
    */
   public function validate($number, $length = false){
-    $clean = substr($number, 0, strlen($number)-1);
-    $ocr = substr($number, strlen($number)-1);
+    $clean = wfPhpfunc::substr($number, 0, wfPhpfunc::strlen($number)-1);
+    $ocr = wfPhpfunc::substr($number, wfPhpfunc::strlen($number)-1);
     if($length){
-      $length_digit = substr($number, strlen($number)-2, 1);
-      if(strlen($number)>9){
-        if(strlen($number) != 10+$length_digit){
+      $length_digit = wfPhpfunc::substr($number, wfPhpfunc::strlen($number)-2, 1);
+      if(wfPhpfunc::strlen($number)>9){
+        if(wfPhpfunc::strlen($number) != 10+$length_digit){
           $this->validator = array('success' => false, 'message' => 'Length digit error.');
           return false;
         }
       }else{
-        if(strlen($number) != $length_digit){
+        if(wfPhpfunc::strlen($number) != $length_digit){
           $this->validator = array('success' => false, 'message' => 'Length digit error.');
           return false;
         }
