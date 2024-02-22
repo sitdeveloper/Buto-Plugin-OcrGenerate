@@ -1,0 +1,36 @@
+readme:
+  name: Buto-Plugin-OcrGenerate
+  description: |
+    Generate and validate OCR numbers.
+  item:
+    -
+      name: Settings
+    -
+      name: Usage
+    -
+      name: Pages
+      item: {  }
+    -
+      name: Widgets
+      item: {  }
+    -
+      name: Event
+      item: {  }
+    -
+      name: Construct
+    -
+      name: Methods
+      item:
+        -
+          name: get
+          description: |
+            Generate ocr from a number.
+        -
+          name: generate
+          description: |
+            Generate a OCR number.
+            Default length is 9 (or 10 if length=true) digits.
+        -
+          name: validate
+          description: |
+            Check for validator param for detalis.
