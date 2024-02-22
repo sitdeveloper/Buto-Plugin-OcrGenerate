@@ -13,6 +13,7 @@ class PluginOcrGenerate{
   public function get($number, $length = false) {
     /**
      * Add length digit.
+     * Length of number plus 2 and finaly last digit is added to number.
      */
     if($length){
       $number = $number.substr(wfPhpfunc::strlen($number)+2, -1);
@@ -89,5 +90,39 @@ class PluginOcrGenerate{
       $this->validator = array('success' => false, 'message' => 'Last digit does not match.');
       return false;
     }
+  }
+  public function page_test(){
+    /**
+     * 
+     */
+    $number = wfRequest::get('number');
+    /**
+     * 
+     */
+    if(!$number){
+      exit('Add &number=1234 to url and run again!');
+    }
+    /**
+     * 
+     */
+    $ocr = $this->get($number);
+    $data = new PluginWfArray();
+    $data->set('number', $number);
+    $data->set('length', false);
+    $data->set('ocr', $ocr);
+    $data->set('validate', $this->validate($ocr));
+    $data->set('validator', $this->validator);
+    wfHelp::print($data);
+    /**
+     * 
+     */
+    $ocr = $this->get($number, true);
+    $data = new PluginWfArray();
+    $data->set('number', $number);
+    $data->set('length', true);
+    $data->set('ocr', $ocr);
+    $data->set('validate', $this->validate($ocr, true));
+    $data->set('validator', $this->validator);
+    wfHelp::print($data);
   }
 }

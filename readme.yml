@@ -9,7 +9,9 @@ readme:
       name: Usage
     -
       name: Pages
-      item: {  }
+      item:
+        -
+          name: page_test
     -
       name: Widgets
       item: {  }
